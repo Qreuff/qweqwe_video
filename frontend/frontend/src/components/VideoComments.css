@@ -1,0 +1,211 @@
+/* src/components/VideoComments.css */
+
+/* Контейнер для всего блока комментариев */
+.video-comments-container {
+    display: flex;
+    flex-direction: column;
+    height: 600px; /* Сохраняем фиксированную высоту */
+    
+    /* --- Комбинация компактности и более мягкой эстетики --- */
+    background-color: #282828; /* Чуть менее темный фон */
+    color: #eeeeee; /* Светлый текст */
+    padding: 15px; /* Средние внутренние отступы */
+    border-radius: 6px; /* Мягкие скругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Более мягкая тень */
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Пример чистого шрифта */
+}
+
+/* Заголовок "Комментарии" */
+.comments-title {
+    text-align: left; /* Выравнивание по левому краю */
+    color: #ffffff; /* Белый цвет */
+    margin-top: 0;
+    margin-bottom: 15px; /* Средний отступ */
+    font-size: 1.4em; /* Размер шрифта */
+    font-weight: bold;
+    border-bottom: 1px solid #444444; /* Темный разделитель */
+    padding-bottom: 10px;
+    flex-shrink: 0;
+}
+
+/* Блок для списка комментариев */
+.comments-list {
+    flex-grow: 1; /* Список занимает все доступное пространство */
+    overflow-y: auto; /* Вертикальная прокрутка */
+    padding-right: 10px; /* Отступ для скроллбара */
+    margin-bottom: 15px; /* Отступ перед формой */
+    padding-top: 0;
+
+    /* Стили скроллбара */
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: #666 #282828; /* Ползунок и фон */
+}
+
+/* Стили для скроллбара в Webkit (Chrome, Safari) */
+.comments-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: #282828; /* Темный фон */
+    border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background-color: #666; /* Темный ползунок */
+    border-radius: 10px;
+    border: 2px solid #282828; /* Рамка под цвет фона */
+}
+
+
+/* Стили для отдельного комментария */
+.comment-item {
+    margin-bottom: 8px; /* Уменьшенный отступ между комментариями для компактности */
+    padding-bottom: 8px; /* Уменьшенный внутренний отступ */
+    border-bottom: 1px dashed #444444; /* Легкий пунктирный разделитель */
+    word-wrap: break-word;
+    font-size: 0.95em; /* Размер шрифта */
+    line-height: 1.5; /* Межстрочный интервал */
+    color: #eeeeee; /* Светлый текст */
+    padding: 5px 0; /* Внутренний отступ */
+}
+
+.comment-item:last-child {
+    border-bottom: none; /* Убираем разделитель у последнего */
+    margin-bottom: 0;
+    padding-bottom: 5px; /* Сохраняем внутренний отступ */
+}
+
+/* Имя автора */
+.comment-author {
+    color: #7b9eff; /* Более мягкий синий цвет */
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1em; /* Размер шрифта */
+}
+
+/* Текст комментария */
+/* Стили унаследуются от .comment-item */
+/* .comment-text { } */
+
+
+/* Дата и время комментария */
+.comment-timestamp {
+    font-size: 0.75em; /* Меньший размер */
+    color: #aaaaaa; /* Серый цвет */
+    margin-top: 3px;
+    text-align: left; /* Выравнивание по левому краю */
+    display: block; /* На новой строке */
+}
+
+/* Сообщение, если комментариев нет */
+.no-comments {
+    text-align: center;
+    color: #aaaaaa; /* Серый цвет */
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* Форма для добавления нового комментария */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Промежуток между элементами формы */
+    padding-top: 15px;
+    border-top: 1px solid #444444; /* Темный разделитель */
+    flex-shrink: 0;
+}
+
+/* Поле ввода текста комментария */
+.comment-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #666666; /* Темная рамка */
+    background-color: #3a3a3a; /* Темный фон поля ввода */
+    color: #eeeeee; /* Светлый текст */
+    font-size: 0.95em;
+    box-sizing: border-box;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-textarea:focus {
+    outline: none;
+    border-color: #00a884; /* Акцентный цвет при фокусе (бирюзовый) */
+    box-shadow: 0 0 0 0.1rem rgba(0, 168, 132, 0.3); /* Легкая тень */
+}
+
+/* Кнопка отправки */
+.comment-button {
+    padding: 10px 20px;
+    background-color: #00a884; /* Акцентный цвет (бирюзовый) */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: flex-end;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Стили для кнопки в отключенном состоянии */
+.comment-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Эффект наведения на кнопку (если не отключена) */
+.comment-button:hover:not(:disabled) {
+    background-color: #008c6f; /* Темнее при наведении */
+}
+
+/* Сообщение об ошибке под формой */
+.comment-post-error {
+    color: #ff8888; /* Более мягкий красный для темной темы */
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+/* Сообщение для неавторизованных пользователей */
+.login-prompt {
+    text-align: center;
+    color: #aaaaaa; /* Серый цвет */
+    font-size: 0.95em;
+    padding-top: 15px;
+    border-top: 1px solid #444444; /* Темный разделитель */
+    flex-shrink: 0;
+}
+
+/* Ссылка в сообщении для неавторизованных (опционально) */
+.login-prompt .login-link {
+    color: #7b9eff; /* Цвет ссылки */
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.login-prompt .login-link:hover {
+    color: #5a7ac1;
+}
+
+
+/* Сообщение об ошибке загрузки списка комментариев */
+.comments-error-list {
+    color: #ff8888; /* Более мягкий красный */
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Индикатор загрузки комментариев */
+.comments-loading {
+    text-align: center;
+    color: #aaaaaa; /* Серый цвет */
+    font-style: italic;
+    margin-top: 15px;
+}

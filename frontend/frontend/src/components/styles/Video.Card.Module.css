@@ -1,0 +1,82 @@
+/* src/components/styles/VideoCard.module.css */
+
+/* Стили для основной карточки видео */
+.card {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    overflow: hidden; /* Обрезаем контент, выходящий за границы (например, изображение) */
+    /* margin: 10px; /* Этот margin, вероятно, должен управляться сеткой, а не самой карточкой */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out; /* Добавляем плавный переход */
+    display: flex; /* Используем flexbox */
+    flex-direction: column; /* Элементы внутри располагаются вертикально */
+    box-sizing: border-box; /* <-- Добавлено: Учитываем padding и border в размере элемента */
+  }
+  
+  /* Эффект наведения */
+  .card:hover {
+    transform: translateY(-5px); /* Сдвигаем карточку вверх при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
+  }
+  
+  /* Стили для ссылки-обертки миниатюры */
+  .thumbnailLink {
+    display: block;
+    text-decoration: none;
+  }
+  
+  /* Стили для изображения миниатюры */
+  .thumbnail {
+    display: block; /* Убираем лишний пробел под изображением */
+    width: 100%;
+    height: 180px; /* Фиксированная высота миниатюры */
+    object-fit: cover; /* Масштабируем изображение, сохраняя пропорции */
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  /* Стили для блока с информацией (название, описание) */
+  .content {
+    padding: 15px;
+    display: flex; /* Используем flexbox */
+    flex-direction: column; /* Элементы внутри располагаются вертикально */
+    flex-grow: 1; /* Позволяет этому блоку занимать все доступное пространство */
+  }
+  
+  /* Стили для заголовка видео */
+  .title {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  /* Стили для ссылки в заголовке */
+  .titleLink {
+    color: inherit; /* Наследует цвет от родителя (.title) */
+    text-decoration: none;
+    transition: text-decoration 0.2s ease-in-out; /* Плавный переход для подчеркивания */
+  }
+  
+  /* Эффект наведения на ссылку в заголовке */
+  .titleLink:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+  }
+  
+  /* Стили для описания видео */
+  .description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    flex-grow: 1; /* Позволяет описанию занимать все доступное пространство */
+  }
+  
+  /* Опционально: добавьте стили для мета-информации (просмотры, дата) и кнопок действий, если они будут добавлены в VideoCard */
+  /*
+  .meta { ... }
+  .actions { ... }
+  .deleteButton { ... }
+  .watchButton { ... }
+  */
+  
+  

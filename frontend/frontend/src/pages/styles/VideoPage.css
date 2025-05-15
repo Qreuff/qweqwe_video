@@ -1,0 +1,135 @@
+/* src/pages/VideoPage.css */
+
+/* Styles for the entire page background */
+body {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    background-image: url('background.png'); /* Path to your background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Fix the image so it doesn't scroll with content */
+    background-color: #e0e0e0; /* Fallback background color */
+    color: #333; /* Default text color */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+/* Container for the main content (video and comments) */
+.content-layout {
+    display: flex; /* Enable Flexbox */
+    /* Adjusted margin to account for fixed header (assuming ~80px height) */
+    /* Add padding-top instead of margin-top for more control over content flow */
+    padding-top: 80px;
+    max-width: 1600px; /* Maximum width of the content area */
+    margin: 0 auto 20px auto; /* Center the block horizontally, add bottom margin */
+    padding-left: 20px; /* Side padding */
+    padding-right: 20px; /* Side padding */
+    gap: 30px; /* Space between video block and comments block */
+    flex-wrap: wrap; /* Allow blocks to wrap on smaller screens */
+    align-items: flex-start; /* Align items to the top */
+    /* Background/border/shadow for the container itself if desired,
+       or apply to inner blocks like video-and-info and comments-sidebar */
+}
+
+/* Block containing the video player and video info */
+.video-and-info {
+    flex: 2 1 700px; /* Grow (twice as fast), shrink (can shrink), base width 700px */
+    min-width: 0; /* Important for responsiveness in Flexbox */
+    background-color: #ffffff; /* White background for content block */
+    padding: 20px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-sizing: border-box; /* Include padding in width */
+    color: #333; /* Dark text color */
+}
+
+/* Video player wrapper - keeps aspect ratio */
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+/* ReactPlayer styles */
+.react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Video information block (title, author, description) */
+.video-info {
+    margin-top: 20px; /* Space below the video player */
+    color: #333; /* Dark text color */
+}
+
+.video-info h1 {
+    font-size: 2em; /* Title font size */
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #222; /* Slightly darker title color */
+}
+
+.video-info p {
+    color: #555; /* Slightly lighter color for metadata */
+    margin: 10px 0; /* Margin for author/date line */
+    line-height: 1.6; /* Line height for description */
+}
+
+
+/* Block containing the comments section */
+.comments-sidebar {
+    flex: 1 1 400px; /* Grow (standard), shrink (can shrink), base width 400px */
+    min-width: 300px; /* Minimum width for the comments block */
+    display: flex; /* Enable Flexbox for layout inside */
+    flex-direction: column; /* Stack content vertically */
+    /* Styles are mainly handled by the VideoComments component's CSS
+       but this block might need its own background/padding if separate */
+    /* Example if you want the sidebar itself to have a different look */
+    /*
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    */
+    /* Assuming VideoComments.css styles the inner container,
+       this block just provides the flex layout and min-width */
+}
+
+
+/* Add some basic responsive adjustments */
+@media (max-width: 1024px) {
+    .content-layout {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 20px; /* Adjust gap when stacked */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .video-and-info,
+    .comments-sidebar {
+        flex-basis: auto; /* Allow blocks to take full width when stacked */
+        min-width: auto; /* Remove min-width constraint when stacked */
+        width: 100%; /* Ensure they take full width */
+    }
+
+    .video-and-info {
+         padding: 15px; /* Adjust padding */
+    }
+
+     /* Adjust comments sidebar padding/background if you applied them */
+     /*
+     .comments-sidebar {
+         padding: 10px;
+     }
+     */
+}
+
+@media (max-width: 768px) {
+     /* Further adjustments for smaller screens */
+     .video-info h1 {
+         font-size: 1.5em;
+     }
+     .video-info p {
+         font-size: 0.9em;
+     }
+}

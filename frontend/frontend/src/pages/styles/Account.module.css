@@ -1,0 +1,162 @@
+/* src/pages/styles/Account.module.css */
+
+/* Контейнер страницы */
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: row; /* Горизонтальная раскладка */
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap; /* Адаптивность на маленьких экранах */
+  gap: 20px;
+
+  padding-top: 80px; /* Под шапку */
+}
+
+/* Секции */
+.profileSection,
+.videosSection {
+  background-color: #d4d4d4;
+  padding: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Профиль слева */
+.profileSection {
+  flex: 0 100 300px; /* Фиксированная ширина */
+}
+
+/* Видео справа */
+.videosSection {
+  flex: 1; /* Занимает оставшееся место */
+  max-width: 800px;
+}
+
+/* Сетка видео */
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Карточка видео */
+.videoCard {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Миниатюра */
+.thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Информация о видео */
+.videoInfo {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.videoInfo h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.videoInfo p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+/* Мета-информация */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Кнопки */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.deleteButton,
+.watchButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+.watchButton {
+  background-color: #007bff;
+  color: white;
+  flex-grow: 1;
+}
+
+.watchButton:hover {
+  background-color: #0056b3;
+}
+
+/* Кнопка загрузки */
+.uploadButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+  background-color: #9e9e9e;
+}
+
+/* Сообщения */
+.loading, .error {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: red;
+}
